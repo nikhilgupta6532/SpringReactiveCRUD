@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.server.ServerRequest;
 import org.springframework.web.reactive.function.server.ServerResponse;
 
+import com.couchbase.client.deps.com.fasterxml.jackson.core.Version;
 import com.nikhilgupta.Book.Book;
 import com.nikhilgupta.spring.service.BookService;
 import com.nikhilgupta.spring.wrapper.ChaptersRepository;
@@ -65,5 +66,10 @@ public class BookHandler {
 		Mono<Book>updateBookName = service.updateBookByName(bookName,chapRepo);
 		return ServerResponse.ok()
 				.body(updateBookName,Book.class);
+	}
+	
+	public Mono<ServerResponse> addNarrativeVersions(ServerRequest request) {
+		//Version result = CommonUtils.convertJsonToObject("NarrativesVersionsPost.json",Version.class);
+		return null;
 	}
 }

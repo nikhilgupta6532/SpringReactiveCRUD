@@ -23,6 +23,7 @@ public class BookService {
 	
 	public Mono<Book> saveBookDetails(Mono<Book> book) {
 		return book.flatMap(repository::save);
+		//return book.flatMap( b-> repository.save(b));
 //		return book.flatMap(new Function<Book, Mono<Book>>() {
 //
 //			@Override
